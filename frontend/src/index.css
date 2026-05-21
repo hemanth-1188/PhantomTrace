@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-black: #06060a;
+  --color-cyber-dark: #0d0e14;
+  --color-cyber-gray: #161722;
+  --color-cyber-card: rgba(13, 14, 20, 0.75);
+  --color-cyber-border: rgba(0, 240, 255, 0.12);
+  --color-cyber-glow: rgba(189, 0, 255, 0.08);
+
+  --color-neon-cyan: #00f0ff;
+  --color-neon-purple: #bd00ff;
+  --color-neon-green: #00ff66;
+  --color-neon-red: #ff0055;
+  --color-neon-orange: #ff9900;
+
+  --font-cyber: 'Space Grotesk', 'Inter', 'SF Mono', monospace;
+}
+
+:root {
+
+  color-scheme: dark;
+  background-color: #06060a;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #06060a;
+  color: #c9d1d9;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+/* Cyber Scanning Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: center;
+}
+
+.cyber-grid-dense {
+  background-image: 
+    linear-gradient(rgba(189, 0, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(189, 0, 255, 0.04) 1px, transparent 1px);
+  background-size: 15px 15px;
+}
+
+/* Glassmorphism Card Style */
+.cyber-card {
+  backdrop-filter: blur(12px);
+  background: rgba(11, 12, 17, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cyber-card:hover {
+  border-color: rgba(189, 0, 255, 0.3);
+  box-shadow: 
+    0 15px 40px -10px rgba(189, 0, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Glowing Elements */
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+}
+
+.glow-purple {
+  text-shadow: 0 0 10px rgba(189, 0, 255, 0.6);
+}
+
+.glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+}
+
+.glow-red {
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.6);
+}
+
+/* Active Glowing Borders */
+.border-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+  border-color: rgba(0, 240, 255, 0.6);
+}
+
+.border-glow-purple {
+  box-shadow: 0 0 15px rgba(189, 0, 255, 0.25);
+  border-color: rgba(189, 0, 255, 0.6);
+}
+
+/* Blinking Threat LED Alert */
+.led-blink-red {
+  animation: led-red-pulse 1s infinite alternate;
+}
+
+.led-blink-green {
+  animation: led-green-pulse 1.5s infinite alternate;
+}
+
+@keyframes led-red-pulse {
+  0% {
+    background-color: rgba(255, 0, 85, 0.4);
+    box-shadow: 0 0 2px rgba(255, 0, 85, 0.4);
+  }
+  100% {
+    background-color: #ff0055;
+    box-shadow: 0 0 12px #ff0055, 0 0 4px #ff0055;
+  }
+}
+
+@keyframes led-green-pulse {
+  0% {
+    background-color: rgba(0, 255, 102, 0.4);
+    box-shadow: 0 0 2px rgba(0, 255, 102, 0.4);
+  }
+  100% {
+    background-color: #00ff66;
+    box-shadow: 0 0 12px #00ff66, 0 0 4px #00ff66;
+  }
+}
+
+/* CRT Scanline Overlay Effect for cyber logs */
+.crt-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Custom Neon Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #06060a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #161722;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bd00ff;
+  box-shadow: 0 0 8px #bd00ff;
+}
+
+/* Typing Terminal animation classes */
+.typing-cursor::after {
+  content: "|";
+  animation: blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  from, to { color: transparent }
+  50% { color: #00f0ff }
+}
