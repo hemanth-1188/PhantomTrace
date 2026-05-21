@@ -26,6 +26,7 @@ frontend/dist/
 
 # Logs and Scratch
 scratch/
+prompt.md
 *.log
 
 # OS generated files
